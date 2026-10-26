@@ -30,6 +30,16 @@ def parse_test_cases(file: str) -> list[dict]:
     return cases
 
 
+def checksum(entry: str):
+    """perform checksum on an entry
+    checksum calculation: (d1+2*d2+3*d3+...+9*d9) mod 11 = 0
+    """
+    total = 0
+    for i, digit in enumerate(entry):
+        total += int(digit) * (i + 1)
+    return total % 11 == 0
+
+
 def parse_entry(entry: str) -> str:
     """parse a 9-digit entry"""
     output = ''
@@ -38,12 +48,16 @@ def parse_entry(entry: str) -> str:
         j = i + 3
         digit = '\n'.join([o[i:j] for o in entry.split('\n')])
         output += DIGITS[digit]
+
+    if not checksum(output):
+        output += ' ERR'
+
     return output
 
 
 def main():
     parse_digits('digits.txt')
-    cases = parse_test_cases('testcases1.txt')
+    cases = parse_test_cases('testcases2.txt')
 
     entry, expected, result = None, None, None
     try:
@@ -55,7 +69,6 @@ def main():
             assert expected == result
 
     except AssertionError:
-        # if any match fails, print the expected and actual results
         print('case incorrect')
         print('entry:', entry)
         print('expected:', expected)

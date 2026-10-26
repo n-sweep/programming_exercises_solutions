@@ -36,7 +36,7 @@ See [`testcases1.txt`](https://github.com/n-sweep/programming_exercises/blob/mai
 > 
 > So now you should also write some code that calculates the checksum for a given number, and identifies if it is a valid account number.
 
-See [`testcases1.txt`](https://github.com/n-sweep/programming_exercises/blob/main/exercises/bank_ocr_kata/testcases1.txt)
+See [`testcases2.txt`](https://github.com/n-sweep/programming_exercises/blob/main/exercises/bank_ocr_kata/testcases2.txt)
 
 ### User Story 3
 
